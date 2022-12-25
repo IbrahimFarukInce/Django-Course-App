@@ -16,6 +16,11 @@
 			<div class="col-lg-9 blog-post-single">
 
 				<div class="row">
+					
+					{% if courses %}
+						
+					
+						
 					{% for course in  courses  %}
 					<div class="col-lg-6 col-md-6 col-12 mb-4 ">
 						<div class="course-item ">
@@ -34,8 +39,7 @@
 							<div class="course-meta-bot">
 								<ul>
 									<li><i class="fa fa-calendar" aria-hidden="true"></i> {{course.date}}</li>
-									<li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
-									<li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+
 								</ul>
 							</div>
 						</div>
@@ -43,13 +47,20 @@
 
 					  
 					{% endfor %}
+					{% else %}
+					<div class="col-12">
+						<h1 class="text-danger">Aradığınız Kriterlere Göre Sonuç Bulunamamıştır</h1>
+					</div>
+
+					{% endif %}
+
 					
 					
 				</div><!-- end row -->
 
 
 
-				<div class="blog-author">
+				<!-- <div class="blog-author">
 					<div class="author-bio">
 						<h3 class="author_name"><a href="#">Tom Jobs</a></h3>
 						<h5>CEO at <a href="#">SmartEDU</a></h5>
@@ -67,7 +78,7 @@
 							<li><a href="#"><i class="fa fa-skype"></i></a></li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 
 
 
@@ -75,9 +86,9 @@
 			<div class="col-lg-3 col-12 right-single">
 				<div class="widget-search">
 					<div class="site-search-area">
-						<form method="get" id="site-searchform" action="#">
+						<form method="get" id="site-searchform" action="{% url 'courses' %}">
 							<div>
-								<input class="input-text form-control" name="search-k" id="search-k"
+								<input class="input-text form-control" name="search" id="search"
 									placeholder="Search keywords..." type="text">
 								<input id="searchsubmit" value="Search" type="submit">
 							</div>

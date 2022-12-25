@@ -1,0 +1,84 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+{% block title%}SmartEdu {% endblock %}
+
+{% block content %}
+
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header tit-up">
+            <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body customer-box">
+            <!-- Nav tabs -->
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="Login">
+                    <form action="" method="POST" role="form" class="form-horizontal">
+                        {% csrf_token %}
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{message.tags}}">{{message}}</div>
+                        {% endfor %}
+
+                        {% endif %}
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                {{form.username}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                {{form.password}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <input type="submit" value="Submit" class="btn btn-light btn-radius btn-brd grd1">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="tab-pane" id="Registration">
+                      <form role="form" class="form-horizontal">
+                          <div class="form-group">
+                              <div class="col-sm-12">
+                                  <input class="form-control" placeholder="Name" type="text">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <div class="col-sm-12">
+                                  <input class="form-control" id="email" placeholder="Email" type="email">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <div class="col-sm-12">
+                                  <input class="form-control" id="mobile" placeholder="Mobile" type="email">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <div class="col-sm-12">
+                                  <input class="form-control" id="password" placeholder="Password" type="password">
+                              </div>
+                          </div>
+                          <div class="row">							
+                              <div class="col-sm-10">
+                                  <button type="button" class="btn btn-light btn-radius btn-brd grd1">
+                                      Save &amp; Continue
+                                  </button>
+                                  <button type="button" class="btn btn-light btn-radius btn-brd grd1">
+                                      Cancel</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
